@@ -1,0 +1,23 @@
+version: '2.1'
+
+services:
+
+  db:
+    image: mongo:3.2.17-jessie
+    ports:
+      - 27017:27017
+  web-serve:
+    image: web-serve
+    build: .
+    environment:
+      PYTHON: Debug
+    ports:
+      - 8088:8000
+      - 9229:8000
+    ## set your startup file here
+    links:
+      - db
+    # env_file: .env
+    # volumes: . /code
+    # command: /code/manage.py 0.0.0.0:8000
+    

@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  web-serve:
+    image: web-serve
+    build: .
+    environment:
+      PYTHON: Debug
+    ports:
+      - 8080:8080
